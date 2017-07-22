@@ -1,5 +1,5 @@
 def arduinos=[
-              ["mega", "atmega1280"],
+              ["uno", "atmega328p"],
               ["mega", "atmega2560"],
              ]
 

@@ -22,7 +22,7 @@ digitalWrite(LATCH_DIO,HIGH);
  
 void setup ()
 {
-Serial.begin(9600);
+Serial.begin(115200);
 /* Set DIO pins to outputs */
 pinMode(LATCH_DIO,OUTPUT);
 pinMode(CLK_DIO,OUTPUT);

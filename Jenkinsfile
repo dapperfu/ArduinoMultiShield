@@ -6,7 +6,7 @@ def arduinos=[
 def node_factory(board, mcu) {
             node {
                 stage("Checkout") {
-			checkout scm
+			checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'SubmoduleOption', disableSubmodules: false, parentCredentials: false, recursiveSubmodules: true, reference: '', trackingSubmodules: false]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '37739cd2-9654-4774-9380-79e73137d547', url: 'git@github.com:jed-frey/ArduinoMultiShield.git']]])
                 }
                 stage('Setup Environment') {
                     sh([script: "make -j2 env"])

@@ -1,3 +1,6 @@
 [submodule "libraries/TimerOne"]
 	path = libraries/TimerOne
 	url = https://github.com/PaulStoffregen/TimerOne.git
+[submodule "libraries/MFShield"]
+	path = libraries/MFShield
+	url = https://github.com/DireCat/MFShield.git

@@ -61,14 +61,6 @@ arduino_make: arduino_make_${ARDUINO_MK_VERSION}.tar.gz
 	@mkdir -p $@
 	@tar -xzf $< -C $@ --strip=1
 
-## Project Builds
-
-# Blink Project
-.PHONY: BlinkLED
-Blink:
-	@echo Building $@...
-	ARDUINO_VERSION=$(subst .,,${ARDUINO_VERSION}) $(MAKE) -j4 -C $@
-
 ## Computer Setup
 
 # OS Detection
@@ -85,3 +77,17 @@ ifeq (${detected_OS}, Linux)
 	@echo Installing compiler for Linux
 	@sudo apt-get install gcc-avr binutils-avr gdb-avr avr-libc avrdude
 endif
+
+## Project Builds
+PROJECTMAKES=$(wildcard */Makefile)
+CLEANPROJECTS= $(addsuffix .clean,$(PROJECTMAKES))
+
+.PHONY: projects clean force
+projects: ${PROJECTMAKES}
+cleanprojects: ${CLEANPROJECTS}
+
+${PROJECTMAKES}: force
+	$(MAKE) -C $(@D)
+
+${CLEANPROJECTS}: %.clean : force
+	$(MAKE) -C $(@D) clean

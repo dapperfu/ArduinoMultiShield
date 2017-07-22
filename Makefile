@@ -86,7 +86,7 @@ CLEANPROJECTS= $(addsuffix .clean,$(PROJECTMAKES))
 projects: ${PROJECTMAKES}
 cleanprojects: ${CLEANPROJECTS}
 
-${PROJECTMAKES}: force
+${PROJECTMAKES}: env
 	$(MAKE) -C $(@D)
 
 ${CLEANPROJECTS}: %.clean : force

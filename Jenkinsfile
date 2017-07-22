@@ -1,5 +1,4 @@
-def arduinos=[["nano", "atmega168"],
-              ["nano", "atmega328"],
+def arduinos=[
               ["mega", "atmega1280"],
               ["mega", "atmega2560"],
              ]
@@ -7,7 +6,7 @@ def arduinos=[["nano", "atmega168"],
 def node_factory(board, mcu) {
             node {
                 stage("Checkout") {
-                    git credentialsId: '37739cd2-9654-4774-9380-79e73137d547', url: 'git@github.com:jed-frey/ArduinoCI.git'
+			checkout scm
                 }
                 stage('Setup Environment') {
                     sh([script: "make -j2 env"])

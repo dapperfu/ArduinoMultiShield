@@ -4,3 +4,6 @@
 [submodule "libraries/MFShield"]
 	path = libraries/MFShield
 	url = https://github.com/DireCat/MFShield.git
+[submodule "libraries/ArduinoJson"]
+	path = libraries/ArduinoJson
+	url = https://github.com/bblanchon/ArduinoJson.git
